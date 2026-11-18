@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- ATS:連自己 Mac 上的 http 服務(Tailscale 100.x 不在 LocalNetworking 例外裡,只能用 ArbitraryLoads,
+	     而且不能同時放 NSAllowsLocalNetworking,不然 ArbitraryLoads 會被整個忽略。跟 Chat App 同一個坑) -->
+	<!-- 近地連結(2026-11-16,跟 Chat App 同一套):沒列在這裡的 Bonjour 型別,NWBrowser 安靜地找不到 -->
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_lirichat._tcp</string>
+	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+</dict>
+</plist>
